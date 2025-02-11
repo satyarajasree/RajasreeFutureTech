@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import AOS from "aos";
-import "aos/dist/aos.css";
 import GLightbox from "glightbox";
-import "glightbox/dist/css/glightbox.css";
 import Isotope from "isotope-layout";
 import imagesLoaded from "imagesloaded";
 import Swiper from "swiper";

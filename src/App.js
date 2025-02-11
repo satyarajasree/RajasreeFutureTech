@@ -32,7 +32,7 @@ function App() {
         <Preloader />
       ) : (
         <div className={`main ${transition ? 'fade-in-active' : 'fade-in'}`}>
-          <MainScript />
+          
           <Base />
           <Carasoul />
           <main className="main">

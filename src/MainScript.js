@@ -6,8 +6,7 @@ import "glightbox/dist/css/glightbox.css";
 import Isotope from "isotope-layout";
 import imagesLoaded from "imagesloaded";
 import Swiper from "swiper";
-import "swiper/css";
-import PureCounter from "@srexi/purecounterjs"; // Alternative for PureCounter
+
 
 const MainScript = () => {
   useEffect(() => {
@@ -82,8 +81,7 @@ const MainScript = () => {
     // GLightbox Initialization
     GLightbox({ selector: ".glightbox" });
 
-    // Pure Counter Initialization
-    new PureCounter();
+    
 
     // Isotope Layout and Filters
     document.querySelectorAll(".isotope-layout").forEach((isotopeItem) => {

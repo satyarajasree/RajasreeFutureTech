@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./App.css";
 import Base from "./components/Base";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -10,7 +12,6 @@ import Services from "./components/Services";
 import Contact from "./components/Contact";
 import CallToAction from "./components/CallToAction";
 import Team from "./components/Team";
-import MainScript from "./MainScript";
 import Preloader from "./preloader/Preloader";
 
 function App() {
@@ -18,30 +19,45 @@ function App() {
   const [transition, setTransition] = useState(false);
 
   useEffect(() => {
-    // Simulate a loading delay (e.g., fetching data)
     setTimeout(() => {
-      setLoading(false); // Set loading to false after 3 seconds
-      setTransition(true); // Trigger the transition
-    }, 3000); // Adjust delay as needed
+      setLoading(false);
+      setTransition(true);
+    }, 3000);
+    
+    AOS.init({
+      duration: 1000, // Animation duration in milliseconds
+      easing: "ease-in-out", // Easing style
+      once: false, // Whether animation should happen only once
+    });
   }, []);
-
 
   return (
     <>
       {loading ? (
         <Preloader />
       ) : (
-        <div className={`main ${transition ? 'fade-in-active' : 'fade-in'}`}>
-          
+        <div className={`main ${transition ? "fade-in-active" : "fade-in"}`}>
           <Base />
           <Carasoul />
           <main className="main">
-            <FeatuedServices />
-            <About />
-            <Services />
-            <CallToAction />
-            <Team />
-            <Contact />
+            <div data-aos="fade-up">
+              <FeatuedServices />
+            </div>
+            <div data-aos="fade-left">
+              <About />
+            </div>
+            <div data-aos="fade-right">
+              <Services />
+            </div>
+            <div data-aos="zoom-in">
+              <CallToAction />
+            </div>
+            <div data-aos="flip-up">
+              <Team />
+            </div>
+            <div data-aos="fade-up">
+              <Contact />
+            </div>
           </main>
           <Footer />
         </div>
